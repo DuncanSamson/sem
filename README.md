@@ -13,3 +13,4 @@ Tasks as User Stories
 Zube.io use for Kanban board
 Sprint Board set up
 Use case diagram/Full use case defined
+Created local repo on Plinio's machine
