@@ -32,4 +32,8 @@ Plinio added as a contributor
 - Create a new branch for your feature
 - Commit changes with meaningful messages
 - Open a Pull Request (PR) into the `develop` branch
-- Wait for review before merging 
+- Wait for review before merging
+
+
+[![LICENSE](https://img.shields.io/github/license/DuncanSamson/sem.svg?style=flat-square)](https://github.com/DuncanSamson/sem/blob/master/LICENSE)
+[![Releases](https://img.shields.io/github/release/DuncanSamson/sem/all.svg?style=flat-square)](https://github.com/DuncanSamson/sem/releases)
