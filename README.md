@@ -1,5 +1,5 @@
 # smMethods
-![workflow](https://github.com/<UserName>/<RepositoryName>/actions/workflows/main.yml/badge.svg)
+![workflow](https://github.com/DuncanSamson/sem/actions/workflows/main.yml/badge.svg)
 ## Description
 Learning Software Engineering Methods is fun
 
