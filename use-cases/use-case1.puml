@@ -1,0 +1,11 @@
+@startuml
+left to right direction
+actor "HR Advisor" as HR
+actor "Finance Department" as Finance
+
+rectangle "HR System" {
+    Finance --> (Request Salary Report)
+    HR --> (Generate Salary Report)
+    HR --> (Provide Report to Finance)
+}
+@enduml
