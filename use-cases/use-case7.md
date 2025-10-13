@@ -36,11 +36,11 @@ Request to edit (e.g., role change, department move, salary change).
 
 ## EXTENSIONS
 - 3a. Validation fails:  
-  → System highlights issues; HR fixes and resubmits.
+  -> System highlights issues; HR fixes and resubmits.
 - 5a. Database unavailable / write error:  
-  → System shows error and keeps old values; HR retries later.
+  -> System shows error and keeps old values; HR retries later.
 - 1a. No permission:  
-  → System denies edit and logs attempt.
+  -> System denies edit and logs attempt.
 
 ## SUB-VARIATIONS
 - Effective-date updates (future-dated role/salary) if policy requires.

@@ -35,11 +35,11 @@ User searches by employee ID/name or opens the record from a report.
 
 ## EXTENSIONS
 - 2a. Employee not found:  
-  → System informs user; user searches again.
+  -> System informs user; user searches again.
 - 3a. Database unavailable:  
-  → System shows error; user retries later.
+  -> System shows error; user retries later.
 - 4a. Access denied (manager viewing outside dept):  
-  → System blocks view and logs attempt.
+  -> System blocks view and logs attempt.
 
 ## SUB-VARIATIONS
 - Search by name → select exact employee.

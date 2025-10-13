@@ -35,11 +35,11 @@ HR receives a verified request to remove data (e.g., policy-driven cleanup).
 
 ## EXTENSIONS
 - 1a. Not eligible by policy:  
-  → System blocks action and explains reason.
+  -> System blocks action and explains reason.
 - 4a. Referential constraints prevent deletion:  
-  → System suggests anonymisation or flags related records to clean first.
+  -> System suggests anonymisation or flags related records to clean first.
 - 4b. Database error:  
-  → System shows error; HR retries later.
+  -> System shows error; HR retries later.
 
 ## SUB-VARIATIONS
 - Hard delete vs. anonymisation according to compliance policy.

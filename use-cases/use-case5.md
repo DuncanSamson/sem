@@ -36,9 +36,9 @@ HR receives a confirmed new-starter request from recruitment/manager.
 
 ## EXTENSIONS
 - 3a. Validation fails (missing/invalid fields):  
-  → System highlights errors, HR corrects and retries.
+  -> System highlights errors, HR corrects and retries.
 - 5a. Database unavailable:  
-  → System shows error and logs incident; HR retries later.
+  -> System shows error and logs incident; HR retries later.
 
 ## SUB-VARIATIONS
 - Optional fields (middle name, supervisor) may be provided now or later.
