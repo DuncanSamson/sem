@@ -1,4 +1,4 @@
-# USE CASE 6: View an Employee Record
+# USE CASE 6: I want to view and employee's details
 
 ## CHARACTERISTIC INFORMATION
 

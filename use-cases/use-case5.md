@@ -1,4 +1,4 @@
-# USE CASE 5: Add a New Employee
+# USE CASE 5: I want to add a new employee's details.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
