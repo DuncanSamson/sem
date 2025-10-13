@@ -1,5 +1,4 @@
 # USE CASE 5: Add a New Employee
-
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context

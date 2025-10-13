@@ -4,11 +4,9 @@
 
 ### Goal in Context
 As an HR advisor I want to view an employee’s details so that the employee’s promotion request can be supported.
-(Department managers may also view for their own staff.)
-
+(Department managers may also view for their own staff).
 ### Scope
 Company.
-
 ### Level
 Primary task.
 
@@ -42,7 +40,7 @@ User searches by employee ID/name or opens the record from a report.
   -> System blocks view and logs attempt.
 
 ## SUB-VARIATIONS
-- Search by name → select exact employee.
+- Search by name -> select exact employee.
 
 ## SCHEDULE
 DUE DATE: Release 1.0

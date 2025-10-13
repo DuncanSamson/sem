@@ -1,5 +1,4 @@
 # USE CASE 7: Update an Employee Record
-
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context

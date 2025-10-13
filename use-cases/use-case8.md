@@ -1,7 +1,5 @@
 # USE CASE 8: Delete an Employee Record
-
 ## CHARACTERISTIC INFORMATION
-
 ### Goal in Context
 As an HR advisor I want to delete an employee’s details so that the company is compliant with data retention legislation.
 
