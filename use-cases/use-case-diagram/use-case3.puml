@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+actor "HR Advisor" as HR
+actor "Finance Department" as Finance
+
+rectangle Database
+
+rectangle "HR System" {
+  usecase UC2 as "Generate Salary Report\n(by Department)"
+  usecase UC2a as "Select Department"
+  usecase UC2b as "Validate Department"
+  usecase UC2c as "Query Current Salaries"
+  usecase UC2d as "Format/Export Report"
+  usecase UC2e as "Provide Report to Finance"
+
+  HR --> UC2a
+  UC2a ..> UC2b : include
+  UC2b ..> UC2 : include
+  UC2 ..> UC2c : include
+  UC2 ..> UC2d : include
+  UC2d --> UC2e
+  Finance --> (Request Department\nSalary Report)
+}
+
+UC2c --> Database
+
+@enduml
