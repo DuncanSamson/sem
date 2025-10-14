@@ -1,0 +1,52 @@
+@startuml
+title UC2 – Salary Report by Department
+
+left to right direction
+skinparam actorStyle awesome
+
+' Actors
+actor HR as "HR Advisor"
+actor Finance as "Finance Department"
+
+' External system
+rectangle Database
+
+' System boundary
+rectangle "HR System" {
+  usecase UC_Request as "Request Department Salary Info"
+  usecase UC_Select as "Select Department"
+  usecase UC_Generate as "Generate Dept Salary Report"
+  usecase UC_Provide as "Provide Report to Finance"
+  usecase UC_Export as "Export (CSV/PDF)"
+}
+
+' Actor interactions
+Finance --> UC_Request
+HR --> UC_Select
+HR --> UC_Generate
+HR --> UC_Provide
+
+' Use-case relationships
+UC_Generate ..> UC_Select : <<include>>
+UC_Provide ..> UC_Export : <<extend>>\n(if export requested)
+
+' Data access
+UC_Generate ..> Database
+
+' Notes to map to your text
+note right of UC_Select
+HR advisor captures the department name
+(or picks from a list).
+end note
+
+note right of UC_Generate
+System retrieves current salary data for
+employees in the selected department
+and formats the report.
+end note
+
+' Extension (dept not found)
+note bottom of UC_Select
+
+end note
+@enduml
