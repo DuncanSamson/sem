@@ -1,0 +1,42 @@
+@startuml
+title UC6 – View an Employee’s Details
+left to right direction
+skinparam actorStyle awesome
+
+' Actors
+actor HR as "HR Advisor"
+actor DM as "Department Manager"
+
+' External system
+rectangle Database
+
+' System boundary
+rectangle "HR System" {
+  usecase UC6 as "View Employee"
+  usecase UC_Search as "Search by ID/Name"
+  usecase UC_Show as "Display Core Details\n(role / dept / salary)"
+}
+
+' Interactions
+HR --> UC6
+DM --> UC6
+
+' Flow decomposition
+UC6 ..> UC_Search : <<include>>
+UC6 ..> UC_Show   : <<include>>
+
+' Data access
+UC_Show ..> Database
+
+' Extensions (notes)
+note bottom of UC_Search
+[Alt] Employee not found:
+• System informs user
+• User refines search
+end note
+
+note right of UC_Show
+[Alt] Access denied (policy)
+• System blocks view and logs attempt
+end note
+@enduml
