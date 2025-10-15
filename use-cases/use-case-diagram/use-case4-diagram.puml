@@ -1,51 +1,18 @@
 @startuml
-title UC4 – Produce Salary Report by Role
 
-left to right direction
-skinparam actorStyle awesome
-
-' === Actors ===
 actor HR as "HR Advisor"
-actor Finance as "Finance Department"
 
-' === External system ===
 rectangle Database
 
-' === HR System Boundary ===
 rectangle "HR System" {
-  usecase UC_Request as "Request Salary Info by Role"
-  usecase UC_EnterRole as "Enter Role Name"
-  usecase UC_Generate as "Generate Role-Based Salary Report"
-  usecase UC_Provide as "Provide Report to Finance"
-  usecase UC_Export as "Export Report (PDF/CSV)"
+    usecase UC4 as "Get salaries
+    by role"
+
+    usecase UCa as "Print salaries"
+
+    HR - UC4
+    UC4 ..> UCa : include
+    UC4 - Database
 }
-
-' === Interactions ===
-Finance --> UC_Request
-HR --> UC_EnterRole
-HR --> UC_Generate
-HR --> UC_Provide
-
-' === Relationships ===
-UC_Generate ..> UC_EnterRole : <<include>>
-UC_Provide ..> UC_Export : <<extend>>\n(if export requested)
-UC_Generate ..> Database
-
-' === Notes ===
-note right of UC_EnterRole
-HR Advisor specifies the role name
-to retrieve salary information.
-end note
-
-note right of UC_Generate
-System retrieves salary data for all
-employees of the specified role.
-end note
-
-note bottom of UC_EnterRole
-[Alt] Role does not exist:
-• System informs HR "Role not found"
-• HR can re-enter or cancel
-end note
 
 @enduml
