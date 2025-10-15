@@ -1,4 +1,5 @@
-# USE CASE 7: Update an Employee Record
+# USE CASE 7: HR Advisor - Update an Employee Record
+
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
@@ -11,10 +12,10 @@ Company.
 Primary task.
 
 ### Preconditions
-Employee exists. HR has authorization to edit. Database reachable.
+Employee exists. HR has edit permissions. Database is available.
 
 ### Success End Condition
-Changes are saved and visible in subsequent views/reports.
+Updated information is saved.
 
 ### Failed End Condition
 No update is made; current state remains.
@@ -23,26 +24,22 @@ No update is made; current state remains.
 HR Advisor.
 
 ### Trigger
-Request to edit (e.g., role change, department move, salary change).
+HR selects an employee to update.
 
 ## MAIN SUCCESS SCENARIO
-1. HR opens the employee record in edit mode.
-2. HR modifies required fields (e.g., role/department/salary).
-3. System validates changes (e.g., salary format, valid department).
-4. HR submits the update.
-5. System writes changes and confirms success.
-6. System records an audit trail entry.
+* HR opens the employee record in edit mode. 
+* HR changes necessary information (role, department, salary). 
+* System validates changes. 
+* HR submits the update. 
+* System saves changes and confirms success.
 
 ## EXTENSIONS
-- 3a. Validation fails:  
-  -> System highlights issues; HR fixes and resubmits.
-- 5a. Database unavailable / write error:  
-  -> System shows error and keeps old values; HR retries later.
-- 1a. No permission:  
-  -> System denies edit and logs attempt.
+* Invalid data: System asks for correction.
+* No permission: Edit is blocked.
+* Database error: System shows an error.
 
 ## SUB-VARIATIONS
-- Effective-date updates (future-dated role/salary) if policy requires.
+None.
 
 ## SCHEDULE
 DUE DATE: Release 1.0

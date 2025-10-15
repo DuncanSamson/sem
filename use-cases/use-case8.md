@@ -1,7 +1,9 @@
-# USE CASE 8: Delete an Employee Record
+# USE CASE 8: HR Advisor - I Want to Delete an Employee Record
+
 ## CHARACTERISTIC INFORMATION
+
 ### Goal in Context
-As an HR advisor I want to delete an employee’s details so that the company is compliant with data retention legislation.
+As an HR advisor I want to delete an employee’s details so that the company follows data protection rules.
 
 ### Scope
 Company.
@@ -10,10 +12,10 @@ Company.
 Primary task.
 
 ### Preconditions
-Employee is eligible for deletion per policy (e.g., left company + retention window passed). HR has delete permission. Database reachable.
+Employee record exists and is eligible for deletion. HR has permission to delete. Database is available.
 
 ### Success End Condition
-Record is deleted (or anonymised if policy requires), no longer visible in standard views/reports.
+Record is deleted.
 
 ### Failed End Condition
 Record remains; nothing is removed.
@@ -22,25 +24,21 @@ Record remains; nothing is removed.
 HR Advisor.
 
 ### Trigger
-HR receives a verified request to remove data (e.g., policy-driven cleanup).
+HR receives a request to delete an employee record.
 
 ## MAIN SUCCESS SCENARIO
-1. HR locates the employee record marked eligible for deletion.
-2. System displays a clear warning and policy note.
-3. HR confirms deletion.
-4. System deletes (or anonymises) the record and related personal data.
-5. System logs an audit entry and shows confirmation.
+* HR locates the employee record marked eligible for deletion.
+* System shows a warning message. 
+* HR confirms deletion. 
+* System deletes the record. 
+* System confirms completion.
 
 ## EXTENSIONS
-- 1a. Not eligible by policy:  
-  -> System blocks action and explains reason.
-- 4a. Referential constraints prevent deletion:  
-  -> System suggests anonymisation or flags related records to clean first.
-- 4b. Database error:  
-  -> System shows error; HR retries later.
+* Not eligible for deletion: System blocks the action.
+* Database error: System shows an error.
 
 ## SUB-VARIATIONS
-- Hard delete vs. anonymisation according to compliance policy.
+None.
 
 ## SCHEDULE
 DUE DATE: Release 1.0
