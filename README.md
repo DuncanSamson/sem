@@ -1,12 +1,19 @@
 # smMethods
 
-![Master Build Status](https://github.com/DuncanSamson/sem/actions/workflows/main.yml/badge.svg?branch=master)
+# Software Engineering Methods
 
-![Develop Build Status](https://img.shields.io/github/actions/workflow/status/DuncanSamson/sem/main.yml?branch=develop&style=flat-square)
+- **Master Build Status**  
+  ![Master Build Status](https://github.com/DuncanSamson/sem/actions/workflows/main.yml/badge.svg?branch=master)
 
-![LICENSE](https://img.shields.io/github/license/DuncanSamson/sem.svg?style=flat-square)](https://github.com/DuncanSamson/sem/blob/master/LICENSE)
+- **Develop Build Status**  
+  ![Develop Build Status](https://img.shields.io/github/actions/workflow/status/DuncanSamson/sem/main.yml?branch=develop&style=flat-square)
 
-![Releases](https://img.shields.io/github/release/DuncanSamson/sem/all.svg?style=flat-square)](https://github.com/DuncanSamson/sem/releases)
+- **License**  
+  [![LICENSE](https://img.shields.io/github/license/DuncanSamson/sem.svg?style=flat-square)](https://github.com/DuncanSamson/sem/blob/master/LICENSE)
+
+- **Release**  
+  [![Releases](https://img.shields.io/github/release/DuncanSamson/sem/all.svg?style=flat-square)](https://github.com/DuncanSamson/sem/releases)
+
 
 ## Description
 Learning Software Engineering Methods is fun
