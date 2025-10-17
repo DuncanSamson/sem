@@ -1,0 +1,21 @@
+@startuml
+title UC8 – Delete Employee Record
+left to right direction
+skinparam actorStyle awesome
+
+actor HR as "HR Advisor"
+
+rectangle Database
+rectangle "HR System" {
+  usecase UC8 as "Delete Employee Record"
+  usecase UC_Warn as "Show Deletion Warning"
+  usecase UC_Confirm as "Confirm Deletion"
+  usecase UC_Remove as "Remove Employee Data"
+}
+
+HR --> UC8
+UC8 ..> UC_Warn : <<include>>
+UC8 ..> UC_Confirm : <<include>>
+UC8 ..> UC_Remove : <<include>>
+UC_Remove --> Database
+@enduml

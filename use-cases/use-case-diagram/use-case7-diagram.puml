@@ -1,0 +1,21 @@
+@startuml
+title UC7 – Update Employee Record
+left to right direction
+skinparam actorStyle awesome
+
+actor HR as "HR Advisor"
+
+rectangle Database
+rectangle "HR System" {
+  usecase UC7 as "Update Employee Record"
+  usecase UC_Edit as "Edit Employee Details"
+  usecase UC_Validate as "Validate Changes"
+  usecase UC_Save as "Save Updated Record"
+}
+
+HR --> UC7
+UC7 ..> UC_Edit : <<include>>
+UC7 ..> UC_Validate : <<include>>
+UC7 ..> UC_Save : <<include>>
+UC_Save --> Database
+@enduml

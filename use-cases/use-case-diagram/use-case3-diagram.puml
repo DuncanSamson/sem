@@ -1,0 +1,17 @@
+@startuml
+title UC3 – Salary Report for Manager's Department
+left to right direction
+skinparam actorStyle awesome
+
+actor DM as "Department Manager"
+rectangle Database
+rectangle "HR System" {
+  usecase UC3 as "Get Salaries for My Department"
+  usecase UC_Report as "Generate Salary Report"
+}
+
+DM --> UC3
+UC3 ..> UC_Report : <<include>>
+UC3 --> Database
+@enduml
+

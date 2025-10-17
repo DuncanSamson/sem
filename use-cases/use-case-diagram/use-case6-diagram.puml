@@ -1,0 +1,19 @@
+@startuml
+title UC6 – View Employee Details
+left to right direction
+skinparam actorStyle awesome
+
+actor HR as "HR Advisor"
+
+rectangle Database
+rectangle "HR System" {
+  usecase UC6 as "View Employee Details"
+  usecase UC_Search as "Search Employee"
+  usecase UC_Display as "Display Employee Info"
+}
+
+HR --> UC6
+UC6 ..> UC_Search : <<include>>
+UC6 ..> UC_Display : <<include>>
+UC6 --> Database
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+title UC5 – Add a New Employee
+left to right direction
+skinparam actorStyle awesome
+
+actor HR as "HR Advisor"
+rectangle Database
+rectangle "HR System" {
+  usecase UC5 as "Add New Employee"
+  usecase UC_Validate as "Validate Input"
+  usecase UC_Create as "Create Employee Record"
+}
+
+HR --> UC5
+UC5 ..> UC_Validate : <<include>>
+UC5 ..> UC_Create : <<include>>
+UC_Create ..> Database
+
+@enduml
