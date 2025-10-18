@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.napier.sem</groupId>
-    <artifactId>smMethods</artifactId>
+    <artifactId>seMethods</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -23,6 +23,7 @@
     </dependencies>
 
     <build>
+        <finalName>seMethods</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
