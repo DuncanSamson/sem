@@ -30,6 +30,6 @@ jobs:
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
-          docker compose up -d --build --remove-orphans
+          docker compose up -d --build #
       - name: view logs
-        run: docker compose logs app
+        run: docker logs
