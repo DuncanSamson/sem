@@ -33,3 +33,5 @@ jobs:
           docker compose up --abort-on-container-exit
       - name: view logs
         run: docker logs sem-quick-cw-app-1
+#this is the last modification on the hotfix branch made following the sem-quick-cw
+#this comment and the badge are the only changes to bring the branch to the coursework last state

@@ -10,6 +10,8 @@
 
 - **Release** [![Releases](https://img.shields.io/github/release/DuncanSamson/sem/all.svg?style=flat-square)](https://github.com/DuncanSamson/sem/releases)
 
+- **Hotfix (currently failing as one unit test deliberately fails)** [![Hotfix](https://img.shields.io/github/actions/workflow/status/DuncanSamson/sem/main.yml?branch=hotfix&style=flat-square)](https://github.com/DuncanSamson/sem/tree/hotfix)
+
 
 ## Description
 Learning Software Engineering Methods is fun
