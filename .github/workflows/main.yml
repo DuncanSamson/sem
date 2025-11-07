@@ -32,4 +32,4 @@ jobs:
           mvn package -DskipTests
           docker compose up -d --build #
       - name: view logs
-        run: docker logs
+        run: docker logs groupproject-app-1
