@@ -32,6 +32,6 @@ jobs:
           mvn package -DskipTests
           docker compose up -d --build #
       - name: view logs
-        run: docker logs db
+        run: docker logs groupproject
 #this is the last modification on the hotfix branch made following the sem-quick-cw
 #this comment and the badge are the only changes to bring the branch to the coursework last state
