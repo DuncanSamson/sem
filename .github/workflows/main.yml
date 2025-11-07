@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '17'
-          distribution: 'adopt'
+          distribution: 'temurin' #changed to use temurin distribution
       - name: Unit Tests
         run: mvn -Dtest=com.napier.sem.MyTest test
 
@@ -30,8 +30,8 @@ jobs:
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
-          docker compose up --abort-on-container-exit
+          docker compose up -d --build #
       - name: view logs
-        run: docker logs sem-quick-cw-app-1
+        run: docker logs db
 #this is the last modification on the hotfix branch made following the sem-quick-cw
 #this comment and the badge are the only changes to bring the branch to the coursework last state
