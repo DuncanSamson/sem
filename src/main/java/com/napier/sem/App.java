@@ -48,6 +48,13 @@ public class App
 
         if (con != null)
         {
+            System.out.println("Successfully connected");
+
+            // Create an instance of your new report class
+            CountryPopulationReport report = new CountryPopulationReport();
+
+            // Run the report using the established connection
+            report.displayCountriesByPopulation(con);
             try
             {
                 // Close connection
@@ -58,5 +65,6 @@ public class App
                 System.out.println("Error closing connection to database");
             }
         }
+
     }
 }
