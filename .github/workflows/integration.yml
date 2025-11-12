@@ -2,8 +2,10 @@ name: Integration Test
 
 on:
   push:
-    branches: [ main, feature/* ]
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   IntegrationTests:
@@ -21,10 +23,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
+
+      - name: Install mysql client
+        run: sudo apt-get update && sudo apt-get install -y default-mysql-client
+
+      - name: Wait for MySQL and import DB dump (if present)
+        run: |
+          for i in {1..30}; do
+            mysqladmin ping -h127.0.0.1 -P3306 -uroot -pexample > /dev/null 2>&1 && break
+            echo "Waiting for MySQL..."
+            sleep 2
+          done
+          if [ -f sql/world.sql ]; then
+            mysql -h127.0.0.1 -P3306 -uroot -pexample world < sql/world.sql
+          fi
+
       - name: Run integration tests
         run: mvn verify
