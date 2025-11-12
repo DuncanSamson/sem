@@ -12,7 +12,8 @@ public class CountryPopulationReport
      *
      */
     public void displayCountriesByPopulation(Connection con) {
-        if (con == null) {
+        if (con == null)
+        {
             System.out.println("Connection is null. Cannot generate report.");
             return;
         }
