@@ -1,0 +1,30 @@
+name: Integration Test
+
+on:
+  push:
+    branches: [ main, feature/* ]
+  pull_request:
+
+jobs:
+  IntegrationTests:
+    name: Integration Test Build Action
+    runs-on: ubuntu-22.04
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: example
+          MYSQL_DATABASE: world
+        options: >-
+          --health-cmd='mysqladmin ping --silent'
+          --health-interval=10s --health-timeout=5s --health-retries=10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Run integration tests
+        run: mvn verify
