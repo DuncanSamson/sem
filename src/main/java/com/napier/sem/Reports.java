@@ -75,5 +75,26 @@ public class Reports {
         return countries;
     }
 
+    public List<City> AllTheCitiesInTheWorldOrganisedByLargestPopulationToSmallest() {
+        String query = "SELECT * FROM city ORDER BY Population DESC";
+        List<City> cities = new ArrayList<>();
+        System.out.print("AllTheCitiesInTheWorldOrganisedByLargestPopulationToSmallest: " + query);
+        try(PreparedStatement statement = connection.prepareStatement(query)) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    City c = City.fromResultSet(resultSet);
+                    cities.add(c);
+                }
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cities;
+    }
+
+
 
 }
+
+

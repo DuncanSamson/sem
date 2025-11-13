@@ -165,4 +165,16 @@ public class WorldIT
         assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
     }
 
+    @Test
+    void testAllTheCitiesInTheWorldOrganisedByLargestPopulationToSmallest(){
+        List<City> cities = reports.AllTheCitiesInTheWorldOrganisedByLargestPopulationToSmallest();
+        assertEquals(4079, cities.size(), "The total number of Cities should be 4,079.");
+
+        var firstCity = cities.get(0);
+        var firstPopulation = firstCity.getPopulation();
+        var secondCity = cities.get(1);
+        var secondPopulation = secondCity.getPopulation();
+        assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
+    }
+
 }
