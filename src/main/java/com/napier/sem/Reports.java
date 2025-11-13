@@ -93,7 +93,25 @@ public class Reports {
         return cities;
     }
 
-
+    public List<Country> TheTopNPopulatedCountriesInARegionWhereNIsProvidedByTheUser(String regionName , int topN) {
+        String query = "SELECT * FROM country WHERE Region = ? ORDER BY Population DESC LIMIT ?";
+        List<Country> countries = new ArrayList<>();
+        System.out.print("TheTopNPopulatedCountriesInARegionWhereNIsProvidedByTheUser: " + query);
+        try(PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, regionName);
+            statement.setInt(2, topN);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Country c = Country.fromResultSet(resultSet);
+                    countries.add(c);
+                }
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return countries;
+    }
 
 }
 
