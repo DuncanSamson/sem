@@ -1,32 +1,19 @@
 package com.napier.sem;
 
-
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
+import java.sql.*;
 
 public class App
 {
     public static void main(String[] args)
     {
-        // Connect to MongoDB
-        MongoClient mongoClient = new MongoClient("mongo-dbserver");
-        // Get a database - will create when we use it
-        MongoDatabase database = mongoClient.getDatabase("mydb");
-        // Get a collection from the database
-        MongoCollection<Document> collection = database.getCollection("test");
-        // Create a document to store
-        Document doc = new Document("name", "Kevin Sim")
-                .append("class", "DevOps")
-                .append("year", "2024")
-                .append("result", new Document("CW", 95).append("EX", 85));
-        // Add document to collection
-        collection.insertOne(doc);
+        Connection con = Connector.connect();
 
-        // Check document in collection
-        Document myDoc = collection.find().first();
-        System.out.println(myDoc.toJson());
+        // Run the report using the established connection
+        //All the countries in the world organised by largest population to smallest.
+        CountryPopulationReport report = new CountryPopulationReport();
+        report.displayCountriesByPopulation(con);
+        // Close the connection
+        Connector.close(con);
+        }
+
     }
-
-}
