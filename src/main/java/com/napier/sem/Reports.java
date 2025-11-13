@@ -54,5 +54,25 @@ public class Reports {
         return countries;
     }
 
+    public List<Country> theTopNPopulatedCountriesInAContinentWhereNIsProvidedByTheUser(int topN) {
+        String query = "SELECT * FROM country ORDER BY Population DESC LIMIT ?";
+        List<Country> countries = new ArrayList<>();
+        System.out.print("TheTopNPopulatedCountriesInTheWorldWhereNIsProvidedByTheUser: " + query);
+
+        try(PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, topN);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Country c = Country.fromResultSet(resultSet);
+                    countries.add(c);
+                }
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return countries;
+    }
+
 
 }
