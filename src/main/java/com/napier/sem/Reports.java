@@ -54,13 +54,14 @@ public class Reports {
         return countries;
     }
 
-    public List<Country> theTopNPopulatedCountriesInAContinentWhereNIsProvidedByTheUser(int topN) {
-        String query = "SELECT * FROM country ORDER BY Population DESC LIMIT ?";
+    public List<Country> theTopNPopulatedCountriesInAContinentWhereNIsProvidedByTheUser(String continent, int topN) {
+        String query = "SELECT * FROM country WHERE Continent LIKE ? ORDER BY Population DESC LIMIT ?";
         List<Country> countries = new ArrayList<>();
         System.out.print("TheTopNPopulatedCountriesInTheWorldWhereNIsProvidedByTheUser: " + query);
 
         try(PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, topN);
+            statement.setString(1, continent);
+            statement.setInt(2, topN);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Country c = Country.fromResultSet(resultSet);

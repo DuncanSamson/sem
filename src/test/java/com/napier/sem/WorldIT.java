@@ -153,13 +153,15 @@ public class WorldIT
 
     @Test
         void testTheTopNPopulatedCountriesInAContinentWhereNIsProvidedByTheUser() {
-        List<Country> countries = reports.theTopNPopulatedCountriesInAContinentWhereNIsProvidedByTheUser(5);
+        List<Country> countries = reports.theTopNPopulatedCountriesInAContinentWhereNIsProvidedByTheUser("Europe", 5);
         assertEquals(5, countries.size(), "The total number of countries should be 5.");
 
         var firstCountry = countries.get(0);
         var firstPopulation = firstCountry.getPopulation();
         var secondCountry = countries.get(1);
         var secondPopulation = secondCountry.getPopulation();
+        var firstContinent = firstCountry.getContinent();
+        assertEquals("Europe", firstContinent, "The continent should be Europe");
         assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
     }
 
