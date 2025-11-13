@@ -3,6 +3,8 @@ package com.napier.sem;
 import org.junit.jupiter.api.*;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class WorldIT
 {
     private static Connection con = null;
-
+    private static Reports reports;
     /**
      * Attempts to connect to the MySQL database running in the Docker service.
      * This method runs once before all tests in this class.
@@ -37,10 +39,10 @@ public class WorldIT
         {
             try
             {
-                // Wait for the DB service to be ready on the GitHub Actions runner (127.0.0.1:3306)
+                // Wait for the DB service to be ready on the GitHub Actions runner (127.0.0.1:33060)
                 Thread.sleep(1000);
                 // Connect to database using the default port and credentials set in the workflow
-                con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:33060/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
                 System.out.println("Successfully connected for integration tests on attempt " + (i + 1));
                 break;
             }
@@ -55,6 +57,7 @@ public class WorldIT
                 System.out.println("Thread interrupted.");
             }
         }
+        reports = new Reports(con);
     }
 
     /**
@@ -121,5 +124,17 @@ public class WorldIT
         } catch (Exception e) {
             fail("Test failed due to SQL exception: " + e.getMessage());
         }
+    }
+
+    @Test
+    void testAllTheCountriesInARegionOrganisedByLargestPopulationToSmallest() {
+        List<Country> countries = reports.allTheCountriesInARegionOrganisedByLargestPopulationToSmallest("North America");
+        assertEquals(5, countries.size(), "The total number of countries should be 5.");
+        assertEquals(countries.get(0).getRegion(), "North America", "The region name should be North America.");
+        var firstCountry = countries.get(0);
+        var firstPopulation = firstCountry.getPopulation();
+        var secondCountry = countries.get(1);
+        var secondPopulation = secondCountry.getPopulation();
+        assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
     }
 }
