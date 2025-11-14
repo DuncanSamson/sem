@@ -1,4 +1,4 @@
-FROM openjdk:latest
-COPY ./target/seMethods-1.0.2-jar-with-dependencies.jar /tmp
+FROM eclipse-temurin:latest
+COPY ./target/semApp.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "seMethods-1.0.2-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "semApp.jar"]
