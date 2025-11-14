@@ -250,4 +250,15 @@ public class WorldIT
         assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
     }
 
+    @Test
+    void testTheTopNPopulatedCitiesInAContinentWhereNIsProvidedByTheUser() {
+        List<City> cities = reports.TheTopNPopulatedCitiesInAContinentWhereNIsProvidedByTheUser("africa");
+        assertEquals(366, cities.size(), "The Number cities that must be returned is 366.");
+
+        var firstCity = cities.get(0);
+        var firstPopulation = firstCity.getPopulation();
+        var secondCity = cities.get(1);
+        var secondPopulation = secondCity.getPopulation();
+        assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
+    }
 }
