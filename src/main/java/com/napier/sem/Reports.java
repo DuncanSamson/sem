@@ -151,12 +151,12 @@ public class Reports {
         return cities;
     }
 
-    public List<City> AllTheCitiesInACountryOrganisedByLargestPopulationToSmallest (String regionName) {
+    public List<City> AllTheCitiesInACountryOrganisedByLargestPopulationToSmallest (String countryName) {
         String query = "SELECT ci.ID, ci.Name, ci.CountryCode, ci.Population, ci.District FROM country c JOIN city ci ON c.Code = ci.CountryCode WHERE c.Name  LIKE ? ORDER BY ci.Population DESC";
         List<City> cities = new ArrayList<>();
         System.out.println("AllTheCitiesInACountryOrganisedByLargestPopulationToSmallest: " + query);
         try(PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, regionName);
+            statement.setString(1, countryName);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     City c = City.fromResultSet(resultSet);
@@ -170,7 +170,24 @@ public class Reports {
         return cities;
     }
 
-
+    public List<City> AllTheCitiesInADistrictOrganisedByLargestPopulationToSmallest (String districtName) {
+        String query = "SELECT ci.ID, ci.Name, ci.CountryCode, ci.Population, ci.District FROM country c JOIN city ci ON c.Code = ci.CountryCode WHERE ci.District  LIKE ? ORDER BY ci.Population DESC";
+        List<City> cities = new ArrayList<>();
+        System.out.println("AllTheCitiesInACountryOrganisedByLargestPopulationToSmallest: " + query);
+        try(PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, districtName);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    City c = City.fromResultSet(resultSet);
+                    cities.add(c);
+                }
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cities;
+    }
 
 
 }
