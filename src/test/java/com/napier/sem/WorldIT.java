@@ -214,4 +214,16 @@ public class WorldIT
 
     }
 
+    @Test
+    void testAllTheCitiesInACountryOrganisedByLargestPopulationToSmallest() {
+        List<City> cities = reports.AllTheCitiesInACountryOrganisedByLargestPopulationToSmallest("france");
+        assertEquals(40  , cities.size(), "The total number of Cities should be 5.");
+
+        var firstCity = cities.get(0);
+        var firstPopulation = firstCity.getPopulation();
+        var secondCity = cities.get(1);
+        var secondPopulation = secondCity.getPopulation();
+        assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
+
+    }
 }
