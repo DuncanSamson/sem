@@ -236,6 +236,18 @@ public class WorldIT
         var secondCity = cities.get(1);
         var secondPopulation = secondCity.getPopulation();
         assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
-
     }
+
+    @Test
+    void testTheTopNPopulatedCitiesInTheWorldWhereNIsProvidedByTheUser() {
+        List<City> cities = reports.TheTopNPopulatedCitiesInTheWorldWhereNIsProvidedByTheUser(10);
+        assertEquals(10  , cities.size(), "The top Number of populated cities in the world should be 10.");
+
+        var firstCity = cities.get(0);
+        var firstPopulation = firstCity.getPopulation();
+        var secondCity = cities.get(1);
+        var secondPopulation = secondCity.getPopulation();
+        assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
+    }
+
 }
