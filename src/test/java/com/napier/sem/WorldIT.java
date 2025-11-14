@@ -217,13 +217,37 @@ public class WorldIT
     @Test
     void testAllTheCitiesInACountryOrganisedByLargestPopulationToSmallest() {
         List<City> cities = reports.AllTheCitiesInACountryOrganisedByLargestPopulationToSmallest("france");
-        assertEquals(40  , cities.size(), "The total number of Cities should be 5.");
+        assertEquals(40  , cities.size(), "The total number of Cities should be 40.");
 
         var firstCity = cities.get(0);
         var firstPopulation = firstCity.getPopulation();
         var secondCity = cities.get(1);
         var secondPopulation = secondCity.getPopulation();
         assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
-
     }
+
+    @Test
+    void testAllTheCitiesInADistrictOrganisedByLargestPopulationToSmallest() {
+        List<City> cities = reports.AllTheCitiesInADistrictOrganisedByLargestPopulationToSmallest("Arizona");
+        assertEquals(9  , cities.size(), "The total number of District should be 9.");
+
+        var firstCity = cities.get(0);
+        var firstPopulation = firstCity.getPopulation();
+        var secondCity = cities.get(1);
+        var secondPopulation = secondCity.getPopulation();
+        assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
+    }
+
+    @Test
+    void testTheTopNPopulatedCitiesInTheWorldWhereNIsProvidedByTheUser() {
+        List<City> cities = reports.TheTopNPopulatedCitiesInTheWorldWhereNIsProvidedByTheUser(10);
+        assertEquals(10  , cities.size(), "The top Number of populated cities in the world should be 10.");
+
+        var firstCity = cities.get(0);
+        var firstPopulation = firstCity.getPopulation();
+        var secondCity = cities.get(1);
+        var secondPopulation = secondCity.getPopulation();
+        assertTrue(firstPopulation > secondPopulation, "The population should be greater than the first population.");
+    }
+
 }
