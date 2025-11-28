@@ -1,5 +1,4 @@
-FROM mysql/mysql-server:latest
-COPY world.sql /docker-entrypoint-initdb.d
-ENV MYSQL_ROOT_PASSWORD example
-#Mac Fix
-ENV MYSQL_ROOT_HOST=%
+FROM mysql:8.0
+ENV MYSQL_ROOT_PASSWORD=example
+ENV MYSQL_DATABASE=world
+COPY world.sql /docker-entrypoint-initdb.d/
